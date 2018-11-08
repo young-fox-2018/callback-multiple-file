@@ -1,13 +1,13 @@
 const fs = require('fs');
 const sleep = require('sleep');
 
-function match_data(parent_file, children_file) {
+function match_data(parent_file, children_file, cb) {
   // Code here
-  fs.readFile('parents.json', function(err, data) {
+  fs.readFile(parent_file, function(err, data) {
     if (err) console.log('err');
     sleep.sleep(5);
     let parent_data = JSON.parse(data)
-    fs.readFile('children.json', function(err, data) {
+    fs.readFile(children_file, function(err, data) {
       if (err) console.log('err');
       sleep.sleep(5);
       let children_data = JSON.parse(data)
@@ -19,10 +19,13 @@ function match_data(parent_file, children_file) {
           }
         }
       }
-      console.log(parent_data);
+      cb(parent_data);
+      // console.log(parent_data);
     })
   })
 }
 
-match_data('./parents.json', './children.json')
+match_data('./parents.json', './children.json', function(data) {
+  console.log(data);
+})
 console.log("Notification : Data sedang diproses !");
