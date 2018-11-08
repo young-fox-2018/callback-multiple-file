@@ -1,7 +1,7 @@
 const fs = require('fs');
 const sleep = require('sleep');
 
-function match_data(parent_file, children_file) {
+function match_data(parent_file, children_file, cb) {
   fs.readFile(parent_file, (err,data) => {
       sleep.sleep(5)
 
@@ -27,7 +27,8 @@ function match_data(parent_file, children_file) {
             }
             sleep.sleep(5)
           }
-          console.log(dataParent)
+          cb(dataParent)
+          // console.log(dataParent)
   
         })
       }
@@ -35,5 +36,7 @@ function match_data(parent_file, children_file) {
 
 }
 
-match_data('./parents.json', './children.json')
+match_data('./parents.json', './children.json',function(data){
+  console.log(data)
+})
 console.log("Notification : Data sedang diproses !");
