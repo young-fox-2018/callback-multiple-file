@@ -11,12 +11,12 @@ function match_data(parent_file, children_file, cb) {
     fs.readFile(children_file, 'utf8', (err, childrenData) => {
       if (err) throw err
       
-      cb(parent_file, JSON.parse(parentData), JSON.parse(childrenData))
+      cb(JSON.parse(parentData), JSON.parse(childrenData))
     })  
   })
 }
 
-function matchData(parent_file, parentData, childrenData) {
+function matchData(parentData, childrenData) {
   for (let i = 0; i < parentData.length; i++) {
     for (let j = 0; j < childrenData.length; j++) {
       if (parentData[i].last_name === childrenData[j].family) {
@@ -28,10 +28,11 @@ function matchData(parent_file, parentData, childrenData) {
       }
     }
   }
-    
-    sleep(2000)
-    console.log(parentData)
-    console.log('Data sudah selesai diproses')
+  
+  sleep(2000)
+  console.log(parentData)
+  console.log('Data sudah selesai diproses')
+
 }
 
 
