@@ -8,7 +8,7 @@ function sleep (milliseconds) {
     }
   }
 }
-function match_data(parent_file, children_file) {
+function match_data(parent_file, children_file, cb) {
   fs.readFile(parent_file, function(err, data) {
     if (err) {
         throw err;
@@ -33,7 +33,7 @@ function match_data(parent_file, children_file) {
             }
           }
         }
-        console.log(parent)
+        cb(parent)
     });
 
 
@@ -42,5 +42,7 @@ function match_data(parent_file, children_file) {
   // Code here
 }
 
-match_data('./parents.json', './children.json')
+match_data('./parents.json', './children.json',function(data){
+  console.log(data)
+})
 console.log("Notification : Data sedang diproses !");
