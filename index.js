@@ -28,14 +28,10 @@ function matchData(parent_file, parentData, childrenData) {
       }
     }
   }
-
-  fs.writeFile(parent_file, JSON.stringify(parentData, null ,4), (err) => {
-    if (err) throw err
     
     sleep(2000)
     console.log(parentData)
     console.log('Data sudah selesai diproses')
-  })
 }
 
 
