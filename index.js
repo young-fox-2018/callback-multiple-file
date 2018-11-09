@@ -1,9 +1,3 @@
-const fs = require('fs');
-const sleep = require('sleep');
+const Controller = require('./Controllers/controller')
 
-function match_data(parent_file, children_file) {
-  // Code here
-}
-
-match_data('./parents.json', './children.json')
-console.log("Notification : Data sedang diproses !");
+Controller.match_data()
