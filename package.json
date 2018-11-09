@@ -10,14 +10,5 @@
   "license": "ISC",
   "dependencies": {
     "sleep": "^5.1.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/young-fox-2018/callback-multiple-file.git"
-  },
-  "bugs": {
-    "url": "https://github.com/young-fox-2018/callback-multiple-file/issues"
-  },
-  "homepage": "https://github.com/young-fox-2018/callback-multiple-file#readme",
-  "keywords": []
+  }
 }
